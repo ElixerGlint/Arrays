@@ -13,6 +13,11 @@ public class App {
 
         System.out.println(Arrays.toString(arr));
         System.out.println(findSame(arr));
+
+        System.out.println(findMin(arr));
+
+
+
     }
 
     public static int findSame(int[] brr) {
@@ -24,5 +29,21 @@ public class App {
                 }
         }
     return -1;
+    }
+
+    public static int findMin(int[] brr) {
+        if(brr.length > 0) {
+        
+
+        brr = brr.clone();
+        int min = brr[0];
+        for (int i = 0; i < brr.length; i++) {
+            if(brr[i] < min) {
+                min = brr[i];
+            }
+        }
+        return min;
+    }
+    return Integer.MAX_VALUE;
     }
 }
