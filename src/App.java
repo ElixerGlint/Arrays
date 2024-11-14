@@ -16,16 +16,71 @@ public class App {
 
         System.out.println(findMin(arr));
 
+        System.out.println(countInRange(arr, 0, 100));
 
 
+        String[] lyrics = new String[] {
+            "Hello"
+            ,"i"
+            ,"am"
+            ,"under"
+            ,"de"
+            ,"water"
+            ,"plaese"
+            ,"heulp"
+            ,"me"
+            ,"!"
+        };
+
+        //System.out.println(countwords(lyrics,"o"));
+        System.out.println("Should print hellow below");
+        messup(lyrics);
+        for(int i = 0; i < lyrics.length; i++) {
+            Thread.sleep(1000);
+            System.out.print(kaeroke(lyrics) + " ");
+        }
     }
+
+    public static void messup(String[] words) {
+        int ran1 = (int) (Math.random()*words.length);
+        int ran2 = (int) (Math.random()*words.length);
+        String temp = words[ran1];
+        words[ran1] = words[ran2];
+        words[ran2] = temp;
+    }
+
+    public static String kaeroke(String[] words) {
+        String tempword = words[0];
+        for(int i = 0; i < words.length-1; i++) {
+            words[i] = words[i + 1];
+        }
+        words[words.length-1] = tempword;
+
+        return tempword;
+    }
+
+
+
+
+
+    public static int countwords(String[] words, String letters) {
+        int count = 0;
+        for(String elem:words) {
+            if(elem.indexOf(letters) > -1) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
 
     public static int findSame(int[] brr) {
         brr = brr.clone(); //means its no longer editing the memory of the OG
         Arrays.sort(brr);
         for(int i = 1; i < brr.length; i++) {
                 if(brr[i] == brr[i-1]) {
-                    return brr[i];
+                return brr[i];
                 }
         }
     return -1;
@@ -37,7 +92,7 @@ public class App {
 
         brr = brr.clone();
         int min = brr[0];
-        for (int i = 0; i < brr.length; i++) {
+        for (int i = 1; i < brr.length; i++) {
             if(brr[i] < min) {
                 min = brr[i];
             }
@@ -45,5 +100,16 @@ public class App {
         return min;
     }
     return Integer.MAX_VALUE;
+    }
+
+
+    public static int countInRange(int[] brr, int min, int max) {
+        int count = 0;
+        for (int elem:brr) {
+            if(elem>=min&&elem<=max) {
+                count++;
+            }
+        }
+        return count;
     }
 }
