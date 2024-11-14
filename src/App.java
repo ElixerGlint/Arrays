@@ -20,24 +20,26 @@ public class App {
 
 
         String[] lyrics = new String[] {
-            "Hello"
-            ,"i"
-            ,"am"
-            ,"under"
-            ,"de"
-            ,"water"
-            ,"plaese"
-            ,"heulp"
+            "Someone"
+            ,"pour"
             ,"me"
+            ,"a"
+            ,"shot"
+            ,"of"
+            ,"coffee"
+            ,"please"
+            ,"i need it"
             ,"!"
         };
 
         //System.out.println(countwords(lyrics,"o"));
-        System.out.println("Should print hellow below");
-        messup(lyrics);
-        for(int i = 0; i < lyrics.length; i++) {
-            Thread.sleep(1000);
+        for(int i = 0; i < 1000; i++) {
+            Thread.sleep(100);
             System.out.print(kaeroke(lyrics) + " ");
+            if(i%lyrics.length==lyrics.length-1) {
+                System.out.println();
+                messup(lyrics);
+            }
         }
     }
 
